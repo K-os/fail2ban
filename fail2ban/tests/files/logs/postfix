@@ -140,3 +140,12 @@ Feb 18 09:48:04 xxx postfix/smtpd[23]: lost connection after AUTH from unknown[1
 # filterOptions: [{}, {"mode": "ddos"}, {"mode": "aggressive"}]
 # failJSON: { "match": false, "desc": "don't affect lawful data (sporadical connection aborts within DATA-phase, see gh-1813 for discussion)" }
 Feb 18 09:50:05 xxx postfix/smtpd[42]: lost connection after DATA from good-host.example.com[192.0.2.10]
+
+# ---------------------------------------
+# Test-cases of postfix too-many-errors mode:
+# ---------------------------------------
+
+# filterOptions: [{"mode": "many_errors"}]
+
+# failJSON: { "time": "2019-06-04T06:25:43", "match": true , "host": "192.0.2.10" }
+Jun  3 06:25:43 server2 postfix/smtpd[29306]: too many errors after RCPT from spammer.example.com[192.0.2.10]
